@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | NFT preview card component</title>
+  </head>
+  <style>
+    .nft-font {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .nft-page-body {
+      height: 100vh;
+      background-color: #0c1b2d;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nft-item-outline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #0d182c;
+      border-radius: 5%;
+    }
+
+    .nft-item-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #0d1629;
+      margin: 20px 30px 50px 30px;
+      border-radius: 5%;
+    }
+
+    .nft-item {
+      width: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #15273f;
+      margin: 20px 30px 50px 30px;
+      color: hsl(215, 51%, 70%);
+      border-radius: 5%;
+    }
+
+  .nft-image {
+    height: 320px;
+    width: 320px;
+    margin: 20px;
+    border-radius: 5%;
+  }
+
+  .nft-img-container {
+    position: relative;
+  }
+
+  .nft-image-overlay-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    top: 19px;
+    left: 20px;
+    height: 320px;
+    width: 320px;
+    background-color: hsl(178, 100%, 50%, 0.5);
+    border-radius: 5%;
+  }
+
+  .nft-image-overlay {
+    width: 20%;
+    height: 20%;
+  }
+
+  .nft-img-container:hover .nft-image-overlay-container {
+    opacity: 1;
+  }
+ 
+
+  .nft-info {
+    color: inherit;
+  }
+  .nft-header {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 5px;
+
+    grid-area: nft-head;
+  }
+
+  .nft-header:hover, .nft-author-link:hover  {
+  color: hsl(178, 100%, 50%);;
+  }
+
+  .nft-about-text {
+    color: inherit;
+    grid-area: nft-about;
+    margin-left:5px;
+    margin-right:5px;
+    line-height: 1.5;
+  }
+
+  .nft-price {
+    color: hsl(178, 100%, 50%);
+    grid-area: nft-price;
+    margin-left:5px;
+  }
+
+  .nft-price::before {
+  content: "";
+  background: url("./images/icon-ethereum.svg") no-repeat;
+  padding-right: 15px;
+  margin-right: 5px;
+  }
+
+  .nft-timer {
+    color: inherit;
+    grid-area: nft-timer;
+    justify-self: end;
+    margin-right:5px;
+  }
+
+  .nft-timer::before {
+  content: "";
+  background: url("./images/icon-clock.svg") no-repeat;
+  padding-right: 15px;
+  margin-right: 5px;
+  }
+
+
+  .nft-author-img {
+    grid-area: nft-author-img;
+    justify-self: start;
+    border: #fff solid 1px;
+    border-radius: 50%;
+  }
+  .nft-author-text {
+    grid-area: nft-author-txt;
+    align-self: center;
+    justify-self: start;
+  }
+
+  .nft-author-link {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .nft-author {
+    display: grid;
+    grid-template-columns: 45px auto;
+    border-top: solid white 1px;
+    height: 35px;
+    padding: 1rem 0 1.5rem;
+    margin: 0 5px 10px 5px;
+    grid-area: nft-author;
+    grid-template-areas: 
+    "nft-author-img nft-author-txt .";
+  }
+
+  .nft-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "nft-head nft-head nft-head"
+    "nft-about nft-about nft-about "
+    "nft-price . nft-timer"
+    "nft-author nft-author nft-author";
+    width: 90%;
+  }
+
+  .nft-attribution {
+  position: fixed;
+  bottom: 0;
+  font-size: 11px;
+  text-align: center;
+  padding-top: 120px;
+}
+.nft-attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 375px) {
+      .nft-item-outline {
+      background-color: #0c1b2d;
+    }
+
+    .nft-item-container {
+      background-color: #0c1b2d;
+    }
+    .nft-item {
+      width: 330px;
+    }
+
+    .nft-image {
+      height: 290px;
+      width: 290px;
+    }
+
+    .nft-author {
+      margin-top: 10px;
+    }
+    }
+  </style>
+  <body class="nft-font nft-page-body">
+    <div class="nft-item-outline">
+      <div class="nft-font nft-item-container">
+        <div class="nft-font nft-item">
+          <div class="nft-img-container">
+            <img class="nft-image" src="/images/image-equilibrium.jpg" alt="">
+            <div class="nft-image-overlay-container">
+              <img class="nft-image-overlay" src="./images/icon-view.svg" alt="">
+            </div>
+          </div>
+          <div class="nft-font nft-info nft-info-grid">
+            <h1 class="nft-font nft-header">
+              Equilibrium #3429
+            </h1>
+            <p class="nft-font nft-about-text">Our Equilibrium collection promotes balance and calm</p>
+            </p>
+           <span class="nft-font nft-price"> 0.041 ETH</span> <span class="nft-font nft-timer">3 days left</span> 
+           <div class="nft-font nft-author">
+              <img class="nft-font nft-author-img"src="./images/image-avatar.png" alt="" height="35px"> 
+              <span class="nft-font nft-author-text">Creation of <a class="nft-font nft-author-link" href="rondellallard.com">Jules Wyvern</a></span> 
+           </div>
+          </div>
+      </div>
+    </div>
+  </div>
+    <div class="nft-attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a>
+        . Coded by <a href="rondellallard.com">Pierre-Jodale Allard</a>.
+    </div>
+  </body>
+</html>
